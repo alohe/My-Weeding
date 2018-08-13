@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+
+            >
+
+            <ImageView
+                android:id="@+id/RingImge"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+
+                android:layout_alignParentTop="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/weedinthreee" />
+
+            <TextView
+                android:id="@+id/ringdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/button2"
+
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="19dp"
+                android:layout_marginRight="19dp"
+                android:text="Jun 2012"
+                android:textSize="10dp"
+                android:theme="@style/Base.Animation.AppCompat.Dialog"
+                tools:layout_editor_absoluteX="288dp"
+                tools:layout_editor_absoluteY="291dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="24dp"
+
+                android:layout_height="24dp"
+
+                android:layout_alignTop="@+id/button4"
+                android:layout_marginLeft="18dp"
+                android:layout_marginStart="18dp"
+                android:layout_toEndOf="@+id/button4"
+                android:layout_toRightOf="@+id/button4"
+                android:background="@drawable/share" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/RingImge"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/ic_more_vert_black_24dp" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
