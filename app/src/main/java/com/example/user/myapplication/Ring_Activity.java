@@ -28,8 +28,9 @@ public class Ring_Activity extends Fragment {
          recyclerView =(RecyclerView)view.findViewById(R.id.ring_recycle_view);
         Ring_items_adapter adapter = new Ring_items_adapter(getContext(),ring_item_list);
         recyclerView.setAdapter(adapter);
+        StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL);
 
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,1));
+        recyclerView.setLayoutManager(staggeredGridLayoutManager);
 
         // recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);

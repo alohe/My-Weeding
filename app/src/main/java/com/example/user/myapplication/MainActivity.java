@@ -13,6 +13,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 Button login ;
 EditText Username,Password;
-   String URL_PRODUCTS = "http://192.168.137.1/Apple.php";
+   String URL_PRODUCTS = "http://192.168.137.1/Dailyenbla/login.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,24 +38,33 @@ Password = (EditText)findViewById(R.id.password);
                     @Override
                     public void onResponse(String response) {
 
+                        if (response.contains("true")){
+                            Intent intent = new Intent();
+                            startActivity(new Intent(getBaseContext(),Navigation_More.class));
+                        }
+                        else {
+                            Toast.makeText(getBaseContext(), "Wrong Username and password", Toast.LENGTH_LONG).show();
+                        }
                     }
                 }, new Response.ErrorListener(){
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getBaseContext(),"No Internet Connection",Toast.LENGTH_LONG);
+                        Toast.makeText(getBaseContext(),error.toString(),Toast.LENGTH_LONG).show();
+
                     }
                 }){
                     @Override
                     public Map<String, String> getParams() throws AuthFailureError {
                         Map<String,String> params = new HashMap<>();
-                        params.put("Username",Username.getText().toString());
-                        params.put("Password",Password.getText().toString());
+                        params.put("username",Username.getText().toString());
+                        params.put("password",Password.getText().toString());
                         return params;
                     }
                 };
-
-
+//Intent intent = new Intent(MainActivity.this,Navigation_More.class);
+//startActivity(intent);
+                Volley.newRequestQueue(MainActivity.this).add(stringRequest);
             }
         });
     }

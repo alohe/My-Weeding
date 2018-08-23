@@ -30,7 +30,7 @@
 
                 android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/weedinthreee" />
+                android:src="@drawable/weeditwo" />
 
             <TextView
                 android:id="@+id/ringdate"

@@ -34,7 +34,7 @@ public class Ring_items_adapter extends RecyclerView.Adapter<Ring_items_adapter.
     @Override
     public void onBindViewHolder(Ring_items_adapter.Pic_views_holder holder, int position) {
    final Ring_Pic_Items rind_item_list = ring_pic_items.get(position);
-
+          holder.mainImages.setImageResource(rind_item_list.getImage());
         holder.Date.setText(rind_item_list.getDate());
 //        holder.Time.setText(rind_item_list.getTime());
 holder.itemView.setOnClickListener(new View.OnClickListener() {

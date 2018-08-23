@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,7 @@ import java.util.List;
 public class Weedding_Activity extends Fragment {
 View view;
 List<Product> productList;
-    private static final String URL_PRODUCTS = "http://192.168.137.1/Apple.php";
+    private static final String URL_PRODUCTS = "http://192.168.137.1/Dailyenbla/Apple.php";
 RecyclerView recyclerView;
 public Weedding_Activity(){
 
@@ -43,7 +44,7 @@ public Weedding_Activity(){
         recyclerView = (RecyclerView) view.findViewById(R.id.recycleview_weeeding);
         Product_Adapter adapter = new Product_Adapter(getContext(),productList);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1,LinearLayoutManager.VERTICAL));
 
        // recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
@@ -93,11 +94,11 @@ public Weedding_Activity(){
 
                                 //adding the product to product list
                                 productList.add(new Product(
-                                        product.getInt("id"),
-                                        product.getString("title"),
-                                        product.getString("shortdesc"),
-                                        product.getDouble("rating"),
-                                        product.getDouble("price"),
+                                        product.getInt("albumid"),
+                                        product.getString("name"),
+                                        product.getString("adesc"),
+                                        product.getString("status"),
+                                        product.getString("date"),
                                         product.getString("image")
                                 ));
                             }

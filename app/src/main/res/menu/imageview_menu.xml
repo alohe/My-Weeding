@@ -7,5 +7,12 @@
     android:id="@+id/wallpapermenu"
     >
 
+
 </item>
+    <item
+        android:id="@+id/download"
+        android:orderInCategory="200"
+        android:icon="@drawable/ic_file_download_black_24dp"
+        android:title="true"
+        app:showAsAction="always" />
 </menu>

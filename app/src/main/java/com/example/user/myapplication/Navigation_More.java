@@ -69,9 +69,6 @@ public class Navigation_More extends AppCompatActivity
                         .setAction("Action", null).show();
 Weedding_Activity activity = new Weedding_Activity();
 
-                activity.productList.add(new Product(1,"","root",1.2,1.5,""));
-              activity.  productList.add(new Product(1,"","root",1.2,1.5,""));
-                activity.productList.add(new Product(1,"","root",1.2,1.5,""));
 
             }
 

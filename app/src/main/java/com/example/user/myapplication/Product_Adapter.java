@@ -1,6 +1,7 @@
 package com.example.user.myapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,18 +38,29 @@ public class Product_Adapter extends RecyclerView.Adapter<Product_Adapter.Produc
     }
 
     @Override
-    public void onBindViewHolder(ProductViewHolder holder, int position) {
-        Product product = productList.get(position);
+    public void onBindViewHolder(final ProductViewHolder holder, int position) {
+        final Product product = productList.get(position);
 
         //loading the image
-        Glide.with(mCtx)
-                .load(product.getImage())
-                .into(holder.imageView);
+        Glide.with(mCtx ).load(product.getImage()).into(holder.imageView);
 
         holder.textViewTitle.setText(product.getTitle());
         holder.textViewShortDesc.setText(product.getShortdesc());
-        holder.textViewRating.setText(String.valueOf(product.getRating()));
-        holder.textViewPrice.setText(String.valueOf(product.getPrice()));
+        holder.textViewRating.setText(product.getRating());
+        holder.textViewPrice.setText(product.getPrice());
+        //Intent
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.putExtra("UserImage", product.getImage());
+                intent.putExtra("ImageDate",product.getShortdesc());
+                intent.setClass(mCtx,View_Image_Detaile.class);
+                mCtx.startActivity(intent);
+
+            }
+        });
     }
 
     @Override
